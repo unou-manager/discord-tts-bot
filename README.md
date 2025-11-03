@@ -18,7 +18,7 @@ VOICEVOXを使用したDiscord読み上げボットです。
 https://qiita.com/1ntegrale9/items/cb285053f2fa5d0cccdf
 
 注意点：
-権限設定（最小限推奨権限設定）
+権限設定（最小推奨権限設定）
  ```bash
  View Channels
  Read Messages
