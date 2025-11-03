@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  voicevox:
+    image: voicevox/voicevox_engine:cpu-latest
+    ports:
+      - "127.0.0.1:50021:50021"
+    restart: unless-stopped
+
+  discord-bot:
+    build: .
+    environment:
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+      - VOICEVOX_URL=http://voicevox:50021/
+      - DEFAULT_VOICE=${DEFAULT_VOICE:-6}
+      - MAX_MESSAGE_LENGTH=${MAX_MESSAGE_LENGTH:-150}
+      - FILE_DELETE_DELAY=${FILE_DELETE_DELAY:-5}
+    volumes:
+      - ./sounds:/app/sounds
+    depends_on:
+      - voicevox
+    restart: unless-stopped
