@@ -176,6 +176,27 @@ async def on_ready():
         print(f"コマンド同期エラー: {e}")
 
 
+@bot.event
+async def on_voice_state_update(member, before, after):
+    if member.bot:
+        return
+    
+    if before.channel is not None:
+        voice_client = member.guild.voice_client
+        
+        if voice_client and voice_client.channel == before.channel:
+            members = [m for m in before.channel.members if not m.bot]
+            
+            if len(members) == 0:
+                guild_id = member.guild.id
+                
+                if guild_id in audio_queues:
+                    audio_queues[guild_id].clear()
+                    is_playing[guild_id] = False
+                
+                await voice_client.disconnect()
+
+
 @bot.tree.command(name="join", description="ボイスチャンネルに参加します")
 async def join(interaction: discord.Interaction):
     if not interaction.user.voice:
