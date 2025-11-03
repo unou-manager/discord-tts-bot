@@ -28,6 +28,8 @@ https://qiita.com/1ntegrale9/items/cb285053f2fa5d0cccdf
  Use Slash Commands
 ```
 
+またdocker構築についても省略
+
 ### 1. 環境変数の設定
 
 `.env`ファイルを作成:
