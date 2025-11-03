@@ -19,12 +19,14 @@ https://qiita.com/1ntegrale9/items/cb285053f2fa5d0cccdf
 
 注意点：
 権限設定（最小限推奨権限設定）
+ ```bash
  View Channels
  Read Messages
  Send Messages
  Connect
  Speak
  Use Slash Commands
+```
 
 ### 1. 環境変数の設定
 
