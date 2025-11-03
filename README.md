@@ -12,31 +12,45 @@ VOICEVOXを使用したDiscord読み上げボットです。
 
 ## セットアップ
 
+### 0. Discord Developer Portal
+事前の管理画面での作成手順は省略。
+参考：
+https://qiita.com/1ntegrale9/items/cb285053f2fa5d0cccdf
+
+注意点：
+権限設定（最小限推奨権限設定）
+ View Channels
+ Read Messages
+ Send Messages
+ Connect
+ Speak
+ Use Slash Commands
+
 ### 1. 環境変数の設定
 
 `.env`ファイルを作成:
 
-\`\`\`bash
+```bash
 cp .env.example .env
-\`\`\`
+```
 
 `.env`ファイルを編集してDiscordボットトークンを設定:
 
-\`\`\`env
+```env
 DISCORD_TOKEN=あなたのボットトークン
-\`\`\`
+```
 
 ### 2. Dockerで起動
 
-\`\`\`bash
+```bash
 docker-compose up -d
-\`\`\`
+```
 
 ### 3. ログの確認
 
-\`\`\`bash
+```bash
 docker-compose logs -f discord-bot
-\`\`\`
+```
 
 ## コマンド
 
@@ -57,23 +71,24 @@ docker-compose logs -f discord-bot
 
 ### ボットが起動しない
 
-\`\`\`bash
+```bash
 docker-compose logs discord-bot
-\`\`\`
+```
 
 ### VOICEVOXエンジンが起動しない
 
-\`\`\`bash
+```bash
 docker-compose logs voicevox
-\`\`\`
+```
 
 ### コンテナの再起動
 
-\`\`\`bash
+```bash
 docker-compose restart
-\`\`\`
+```
 
 ### コンテナの停止
 
-\`\`\`bash
+```bash
 docker-compose down
+```
